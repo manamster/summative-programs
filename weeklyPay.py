@@ -18,8 +18,10 @@ def calculate(hours, payRate):
     """Calculates the correct wage of the employee"""
     if hours == 40:
         wage = hours * payRate
-    elif hours > 40:
-        wage = hours * (payRate * 1.5)
+        if hours > 40:
+            overtime = hours - 40
+            wage += overtime * (payRate * 1.5)
+
     return(wage)
 
 def display(name, hours, payRate, wage):
